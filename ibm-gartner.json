@@ -1,0 +1,98 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "QnA",
+    "description" : "QnA",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://ibm-gartner-qna.968d96a4.public.multi-containers.ibm.com"
+  } ],
+  "paths" : {
+    "/getAnswer" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "required" : true,
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "QnA",
+            "headers" : {
+              "Transfer-Encoding" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : "chunked"
+              },
+              "X-Rate-Limit-Request-Forwarded-For" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : "44.205.208.32"
+              },
+              "Server" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : "Caddy"
+              },
+              "X-Rate-Limit-Duration" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : "1"
+              },
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : "*"
+              },
+              "X-Rate-Limit-Limit" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : "10.00"
+              },
+              "X-Rate-Limit-Request-Remote-Addr" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : "172.17.0.1:56796"
+              },
+              "Date" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "example" : "Mon, 31 Jul 2023 05:58:17 GMT"
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "required" : [ "data" ],
+                  "type" : "object",
+                  "properties" : {
+                    "data" : {
+                      "type" : "string"
+                    }
+                  },
+                  "additionalProperties" : false
+                }
+              }
+            }
+          }
+        }  
+      }
+    }
+  },
+  "components" : {
+    "securitySchemes" : { }
+  }
+}
